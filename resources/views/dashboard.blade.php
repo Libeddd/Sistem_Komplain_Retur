@@ -35,6 +35,8 @@
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
         .active-nav { background-color: #5048e5; color: white; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
     <script>
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -91,22 +93,22 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-                <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm border-l-4 border-l-slate-400">
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Total Masuk</span>
-                    <p class="text-3xl font-extrabold mt-2 text-slate-800 dark:text-slate-100">{{ $total }}</p>
+            <div class="flex overflow-x-auto md:grid md:grid-cols-4 gap-4 md:gap-6 mb-8 pb-2 snap-x hide-scrollbar">
+                <div class="min-w-[140px] sm:min-w-[200px] md:min-w-0 flex-none snap-start bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm border-l-4 border-l-slate-400">
+                    <span class="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest block truncate">Total Masuk</span>
+                    <p class="text-2xl sm:text-3xl font-extrabold mt-1 sm:mt-2 text-slate-800 dark:text-slate-100">{{ $total }}</p>
                 </div>
-                <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm border-l-4 border-l-amber-500">
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Pending Review</span>
-                    <p class="text-3xl font-extrabold mt-2 text-amber-600">{{ $pending }}</p>
+                <div class="min-w-[140px] sm:min-w-[200px] md:min-w-0 flex-none snap-start bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm border-l-4 border-l-amber-500">
+                    <span class="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest block truncate">Pending</span>
+                    <p class="text-2xl sm:text-3xl font-extrabold mt-1 sm:mt-2 text-amber-600">{{ $pending }}</p>
                 </div>
-                <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm border-l-4 border-l-blue-500">
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Approved</span>
-                    <p class="text-3xl font-extrabold mt-2 text-blue-600">{{ $approved }}</p>
+                <div class="min-w-[140px] sm:min-w-[200px] md:min-w-0 flex-none snap-start bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm border-l-4 border-l-blue-500">
+                    <span class="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest block truncate">Approved</span>
+                    <p class="text-2xl sm:text-3xl font-extrabold mt-1 sm:mt-2 text-blue-600">{{ $approved }}</p>
                 </div>
-                <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm border-l-4 border-l-emerald-500">
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Done (Selesai)</span>
-                    <p class="text-3xl font-extrabold mt-2 text-emerald-600">{{ $done }}</p>
+                <div class="min-w-[140px] sm:min-w-[200px] md:min-w-0 flex-none snap-start bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm border-l-4 border-l-emerald-500">
+                    <span class="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest block truncate">Selesai</span>
+                    <p class="text-2xl sm:text-3xl font-extrabold mt-1 sm:mt-2 text-emerald-600">{{ $done }}</p>
                 </div>
             </div>
 
