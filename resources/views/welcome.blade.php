@@ -111,11 +111,11 @@
                         <span class="material-symbols-outlined">cycle</span>
                     </div>
                     <span
-                        class="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-primary dark:from-white dark:to-primary">Komplain
-                        & Retur/span>
+                        class="text-xl sm:text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-primary dark:from-white dark:to-primary">Komplain
+                        & Retur</span>
                 </div>
 
-                <div class="flex items-center gap-4">
+                <div class="flex items-center gap-2 sm:gap-4">
                     <button id="theme-toggle"
                         class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
                         <span class="material-symbols-outlined dark:hidden">dark_mode</span>
@@ -125,13 +125,15 @@
                     @if (Route::has('login'))
                         @auth
                             <a href="{{ url('/home') }}"
-                                class="px-5 py-2.5 rounded-lg font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Dashboard</a>
+                                class="px-4 sm:px-5 py-2.5 rounded-lg font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-sm sm:text-base">Dashboard</a>
                         @else
-                            <a href="{{ route('login') }}"
-                                class="hidden sm:block px-5 py-2.5 rounded-lg font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Masuk</a>
+                            <a href="{{ route('login') }}" class="flex items-center gap-1 px-2 sm:px-5 py-2.5 rounded-lg font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                                <span class="material-symbols-outlined sm:hidden text-[20px]">login</span>
+                                <span class="hidden sm:block">Masuk</span>
+                            </a>
                             @if (Route::has('register'))
                                 <a href="{{ route('register') }}"
-                                    class="px-6 py-2.5 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/30 hover:bg-primary-dark hover:-translate-y-0.5 transition-all">Daftar</a>
+                                    class="px-4 sm:px-6 py-2 sm:py-2.5 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/30 hover:bg-primary-dark hover:-translate-y-0.5 transition-all text-sm sm:text-base">Daftar</a>
                             @endif
                         @endauth
                     @endif
@@ -153,7 +155,7 @@
                             Platform Resolusi Cepat
                         </div>
 
-                        <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight leading-tight">
+                        <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-tight">
                             Solusi Komplain & Retur <br />
                             <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">Tanpa
                                 Ribet.</span>

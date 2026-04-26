@@ -40,7 +40,7 @@
     </script>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
-    <div class="relative flex min-h-screen w-full flex-col items-center justify-start pt-5 overflow-x-hidden p-6">
+    <div class="relative flex min-h-screen w-full flex-col items-center justify-start pt-5 overflow-x-hidden p-4 sm:p-6">
         
         <button id="theme-toggle" class="absolute top-4 right-4 p-2 rounded-full bg-white dark:bg-slate-800 shadow-md hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors z-50">
             <span class="material-symbols-outlined dark:hidden">dark_mode</span>

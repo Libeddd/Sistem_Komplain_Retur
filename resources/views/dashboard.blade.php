@@ -83,8 +83,8 @@
             </button>
         </header>        
 
-        <main class="flex-1 overflow-y-auto p-6 md:p-8">
-            <div class="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <main class="flex-1 overflow-y-auto p-4 sm:p-6 md:p-8 pb-20 md:pb-8">
+            <div class="mb-6 md:mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
                     <h1 class="text-2xl font-black tracking-tight text-slate-900 dark:text-white">Dashboard Overview</h1>
                     <p class="text-sm text-slate-500 mt-1">Ringkasan performa dan analitik komplain retur.</p>
@@ -286,6 +286,22 @@
             });
         }
     </script>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="md:hidden fixed bottom-0 w-full bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 flex justify-around items-center h-16 z-50 px-2 pb-safe">
+        <a href="{{ url('/dashboard') }}" class="flex flex-col items-center justify-center gap-1 text-primary w-full h-full">
+            <span class="material-symbols-outlined text-[24px]">home</span>
+            <span class="text-[10px] font-bold">Dashboard</span>
+        </a>
+        <a href="{{ url('/manajemen-komplain') }}" class="flex flex-col items-center justify-center gap-1 text-slate-400 hover:text-primary dark:hover:text-primary transition-colors w-full h-full">
+            <span class="material-symbols-outlined text-[24px]">inventory_2</span>
+            <span class="text-[10px] font-medium">Manajemen</span>
+        </a>
+        <a href="{{ route('logout') }}" class="flex flex-col items-center justify-center gap-1 text-slate-400 hover:text-red-500 transition-colors w-full h-full">
+            <span class="material-symbols-outlined text-[24px]">logout</span>
+            <span class="text-[10px] font-medium">Keluar</span>
+        </a>
+    </nav>
 </body>
 </html>
 
