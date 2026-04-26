@@ -1,58 +1,128 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📦 Sistem Komplain & Retur Produk Retail Lokal
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<div align="center">
+  <p><strong>Aplikasi berbasis web untuk mengelola retur & komplain secara sistematis.</strong></p>
+  <p><i>Dibuat sebagai pemenuhan Tugas Mata Kuliah Rekayasa Perangkat Lunak (RPL) oleh Kelompok 2.</i></p>
+</div>
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📖 Deskripsi Proyek
+**Sistem Komplain & Retur** adalah platform digital yang dirancang untuk menyederhanakan birokrasi purna jual antara pelanggan dan pihak pengelola retail. Sistem ini memfasilitasi pengajuan komplain barang rusak atau tidak sesuai, memberikan transparansi riwayat status kepada pelanggan, serta menyediakan antarmuka analitik dinamis bagi admin untuk pengambilan keputusan.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## ✨ Fitur Utama (Wajib & Kompleksitas)
 
-## Learning Laravel
+### Untuk Customer (Pelanggan)
+- 📝 **Pengajuan Komplain Dinamis:** Mendukung pemisahan form berdasarkan kendala ("Barang Rusak" atau "Barang Tidak Sesuai") dengan validasi spesifik.
+- 📸 **Validasi Bukti Otomatis:** Sistem wajib unggah bukti Foto dan/atau Video unboxing dengan batasan ukuran *file* untuk validasi kondisi barang.
+- 🔍 **Tracking Riwayat Real-Time:** Pelanggan dapat melacak status komplain mereka (Pending, Review, Approved, Rejected, Done).
+- 🔐 **Isolasi Privasi Data:** Pelanggan hanya dapat melihat dan mengakses riwayat komplain miliknya sendiri.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Untuk Admin (Pengelola)
+- 📊 **Dashboard Analitik Dinamis:** Deteksi otomatis *Top Produk* yang dikomplain, *Kategori Dominan* kerusakan, dan *Grafik Trend* keluhan secara *real-time*.
+- 🗂️ **Manajemen Workflow Retur:** Kemampuan untuk meninjau (Review) detail komplain melalui *Floating Modal*, lalu memperbarui status (Approve, Reject, Done).
+- 🛡️ **Rule Category & Fraud Detection:** Pencegahan manipulasi data melalui isolasi *middleware* perlindungan *route* admin dan validasi data server-side.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Antarmuka Pengguna (UI/UX)
+- 🌓 **Global Dark Mode Persistent:** Fitur mode gelap/terang yang terintegrasi di seluruh halaman dengan kemampuan menyimpan preferensi memori *browser*.
+- ⚡ **Anti-FOUC Architecture:** Skema arsitektur antarmuka yang mencegah kedipan halaman (*Flash of Unstyled Content*) saat navigasi di mode gelap.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+---
 
-## Agentic Development
+## 🛠️ Teknologi yang Digunakan
+- **Backend:** Laravel (PHP Framework)
+- **Frontend:** HTML5, Blade Templating, Vanilla JavaScript
+- **Styling:** Tailwind CSS (via CDN)
+- **Database:** MySQL
+- **Chart/Grafik:** Chart.js
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+---
 
-```bash
-composer require laravel/boost --dev
+## 📂 Dokumentasi Kode & Struktur Direktori
 
-php artisan boost:install
+Berikut adalah direktori utama tempat logika spesifik proyek ini berada:
+
+```text
+Sistem_Komplain_Retur/
+├── app/
+│   ├── Http/Controllers/
+│   │   ├── AdminController.php      # Menangani logika dashboard analitik & manajemen status admin
+│   │   ├── AuthController.php       # Menangani proses Login & Register pengguna
+│   │   └── ComplaintController.php  # Menangani submit form komplain dan upload bukti file (Storage)
+│   ├── Models/
+│   │   ├── Complaint.php            # Representasi tabel complaints dan relasi User
+│   │   └── User.php                 # Representasi entitas pengguna (role: customer/admin)
+├── database/
+│   ├── migrations/
+│   │   └── ...create_complaints_table.php # Skema arsitektur database komplain 
+├── resources/
+│   ├── views/
+│   │   ├── dashboard.blade.php      # UI Dashboard Admin (Grafik, Analitik)
+│   │   ├── form.blade.php           # UI Form Pengajuan Komplain Customer
+│   │   ├── home.blade.php           # UI Riwayat Komplain Customer
+│   │   ├── login.blade.php          # UI Autentikasi
+│   │   ├── manajemen-komplain.blade.php # UI Tabel Admin & Floating Review Modal
+│   │   ├── register.blade.php       # UI Pendaftaran
+│   │   └── welcome.blade.php        # UI Landing Page Informasi Produk
+└── routes/
+    └── web.php                      # Definisi routing, proteksi Auth Middleware & Role Middleware
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+---
 
-## Contributing
+## ⚙️ Panduan Instalasi (Local Development)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Ikuti langkah-langkah di bawah ini untuk menjalankan proyek secara lokal:
 
-## Code of Conduct
+1. **Clone Repositori**
+   ```bash
+   git clone https://github.com/Libeddd/Sistem_Komplain_Retur.git
+   cd Sistem_Komplain_Retur
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+2. **Instalasi Dependencies PHP**
+   ```bash
+   composer install
+   ```
 
-## Security Vulnerabilities
+3. **Konfigurasi Environment**
+   Gandakan file `.env.example` menjadi `.env`, lalu sesuaikan konfigurasi database Anda.
+   ```bash
+   cp .env.example .env
+   ```
+   *Buka `.env` dan pastikan konfigurasi MySQL:*
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=nama_database_anda
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+4. **Generate Application Key**
+   ```bash
+   php artisan key:generate
+   ```
 
-## License
+5. **Migrasi Database & Symbolic Link Storage**
+   Jalankan migrasi untuk membuat tabel, dan *link* folder `storage` agar foto/video komplain dapat diakses publik.
+   ```bash
+   php artisan migrate
+   php artisan storage:link
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+6. **Jalankan Server Lokal**
+   ```bash
+   php artisan serve
+   ```
+   Akses aplikasi di `http://127.0.0.1:8000` pada web browser Anda.
+
+---
+
+<div align="center">
+  <b>Tugas Rekayasa Perangkat Lunak - 2026</b><br>
+  Didesain dengan ❤️ oleh Kelompok 2
+</div>
