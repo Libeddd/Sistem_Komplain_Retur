@@ -127,7 +127,8 @@
                             <a href="{{ url('/home') }}"
                                 class="px-4 sm:px-5 py-2.5 rounded-lg font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-sm sm:text-base">Dashboard</a>
                         @else
-                            <a href="{{ route('login') }}" class="flex items-center gap-1 px-2 sm:px-5 py-2.5 rounded-lg font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                            <a href="{{ route('login') }}"
+                                class="flex items-center gap-1 px-2 sm:px-5 py-2.5 rounded-lg font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
                                 <span class="material-symbols-outlined sm:hidden text-[20px]">login</span>
                                 <span class="hidden sm:block">Masuk</span>
                             </a>
@@ -276,46 +277,65 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center max-w-2xl mx-auto mb-16">
                     <h2 class="text-primary font-bold tracking-wider uppercase text-sm mb-3">Tentang Kami</h2>
-                    <h3 class="text-3xl md:text-4xl font-extrabold">Mengenal Tim <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500">Kelompok 2</span></h3>
-                    <p class="mt-4 text-slate-600 dark:text-slate-400">Kami adalah Kelompok 2 dari mata kuliah Rekayasa Perangkat Lunak. Project Sistem Komplain & Retur ini dibuat untuk mengelola retur & komplain secara sistematis pada produk retail lokal.</p>
+                    <h3 class="text-3xl md:text-4xl font-extrabold">Mengenal Tim <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500">Kelompok
+                            2</span></h3>
+                    <p class="mt-4 text-slate-600 dark:text-slate-400">Kami adalah Kelompok 2 dari mata kuliah Rekayasa
+                        Perangkat Lunak. Project Sistem Komplain & Retur ini dibuat untuk mengelola retur & komplain
+                        secara sistematis pada produk retail lokal.</p>
                 </div>
 
                 <div class="flex flex-wrap justify-center gap-6 sm:gap-8">
                     <!-- Member 1 -->
-                    <div class="w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1.5rem)] glass p-6 rounded-3xl text-center hover:-translate-y-2 transition-transform duration-300">
-                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400 bg-cover bg-center" style="background-image: url('https://ui-avatars.com/api/?name=Mohammad+Abid&background=5048e5&color=fff&size=150')"></div>
+                    <div
+                        class="w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1.5rem)] glass p-6 rounded-3xl text-center hover:-translate-y-2 transition-transform duration-300">
+                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400 bg-cover bg-center"
+                            style="background-image: url('https://ui-avatars.com/api/?name=Mohammad+Abid&background=5048e5&color=fff&size=150')">
+                        </div>
                         <h4 class="text-lg font-bold text-slate-900 dark:text-white">Mohammad Abid</h4>
                         <p class="text-primary text-sm font-semibold mb-2">Programmer</p>
                         <p class="text-xs text-slate-500">NIM: 25051204321</p>
                     </div>
 
                     <!-- Member 2 -->
-                    <div class="w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1.5rem)] glass p-6 rounded-3xl text-center hover:-translate-y-2 transition-transform duration-300">
-                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400 bg-cover bg-center" style="background-image: url('https://ui-avatars.com/api/?name=Faiz+Ahmad&background=5048e5&color=fff&size=150')"></div>
+                    <div
+                        class="w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1.5rem)] glass p-6 rounded-3xl text-center hover:-translate-y-2 transition-transform duration-300">
+                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400 bg-cover bg-center"
+                            style="background-image: url('https://ui-avatars.com/api/?name=Faiz+Ahmad&background=5048e5&color=fff&size=150')">
+                        </div>
                         <h4 class="text-lg font-bold text-slate-900 dark:text-white">Faiz Ahmad</h4>
                         <p class="text-primary text-sm font-semibold mb-2">UI/UX Designer</p>
                         <p class="text-xs text-slate-500">NIM: 25051204298</p>
                     </div>
 
                     <!-- Member 3 -->
-                    <div class="w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1.5rem)] glass p-6 rounded-3xl text-center hover:-translate-y-2 transition-transform duration-300">
-                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400 bg-cover bg-center" style="background-image: url('https://ui-avatars.com/api/?name=Bagus+Chandra&background=5048e5&color=fff&size=150')"></div>
+                    <div
+                        class="w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1.5rem)] glass p-6 rounded-3xl text-center hover:-translate-y-2 transition-transform duration-300">
+                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400 bg-cover bg-center"
+                            style="background-image: url('https://ui-avatars.com/api/?name=Bagus+Chandra&background=5048e5&color=fff&size=150')">
+                        </div>
                         <h4 class="text-lg font-bold text-slate-900 dark:text-white">Bagus Chandra</h4>
                         <p class="text-primary text-sm font-semibold mb-2">QA Tester</p>
                         <p class="text-xs text-slate-500">NIM: 25051204299</p>
                     </div>
 
                     <!-- Member 4 -->
-                    <div class="w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1.5rem)] glass p-6 rounded-3xl text-center hover:-translate-y-2 transition-transform duration-300">
-                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400 bg-cover bg-center" style="background-image: url('https://ui-avatars.com/api/?name=Najwa+Chava&background=5048e5&color=fff&size=150')"></div>
+                    <div
+                        class="w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1.5rem)] glass p-6 rounded-3xl text-center hover:-translate-y-2 transition-transform duration-300">
+                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400 bg-cover bg-center"
+                            style="background-image: url('https://ui-avatars.com/api/?name=Najwa+Chava&background=5048e5&color=fff&size=150')">
+                        </div>
                         <h4 class="text-lg font-bold text-slate-900 dark:text-white">Najwa Chava</h4>
                         <p class="text-primary text-sm font-semibold mb-2">System Analyst</p>
                         <p class="text-xs text-slate-500">NIM: 25051204371</p>
                     </div>
 
                     <!-- Member 5 -->
-                    <div class="w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1.5rem)] glass p-6 rounded-3xl text-center hover:-translate-y-2 transition-transform duration-300">
-                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400 bg-cover bg-center" style="background-image: url('https://ui-avatars.com/api/?name=Tabligh+Akbar&background=5048e5&color=fff&size=150')"></div>
+                    <div
+                        class="w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1.5rem)] glass p-6 rounded-3xl text-center hover:-translate-y-2 transition-transform duration-300">
+                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400 bg-cover bg-center"
+                            style="background-image: url('https://ui-avatars.com/api/?name=Tabligh+Akbar&background=5048e5&color=fff&size=150')">
+                        </div>
                         <h4 class="text-lg font-bold text-slate-900 dark:text-white">Tabligh Akbar</h4>
                         <p class="text-primary text-sm font-semibold mb-2">Project Manager</p>
                         <p class="text-xs text-slate-500">NIM: 25051204331</p>
@@ -360,7 +380,7 @@
                     <div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
                         <span class="material-symbols-outlined text-sm">cycle</span>
                     </div>
-                    <span class="font-bold text-lg">Kelompok 2 RPL</span>
+                    <span class="font-bold text-lg">Komplain & Retur</span>
                 </div>
 
                 <p class="text-slate-500 text-sm">
