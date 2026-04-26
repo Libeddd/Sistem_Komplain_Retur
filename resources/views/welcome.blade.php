@@ -283,42 +283,42 @@
                 <div class="flex flex-wrap justify-center gap-6 sm:gap-8">
                     <!-- Member 1 -->
                     <div class="w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1.5rem)] glass p-6 rounded-3xl text-center hover:-translate-y-2 transition-transform duration-300">
-                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400">1</div>
-                        <h4 class="text-lg font-bold text-slate-900 dark:text-white">[Nama Anggota 1]</h4>
-                        <p class="text-primary text-sm font-semibold mb-2">[Role / Jobdesk]</p>
-                        <p class="text-xs text-slate-500">NIM: [NIM Mahasiswa]</p>
+                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400 bg-cover bg-center" style="background-image: url('https://ui-avatars.com/api/?name=Mohammad+Abid&background=5048e5&color=fff&size=150')"></div>
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white">Mohammad Abid</h4>
+                        <p class="text-primary text-sm font-semibold mb-2">Programmer</p>
+                        <p class="text-xs text-slate-500">NIM: 25051204321</p>
                     </div>
 
                     <!-- Member 2 -->
                     <div class="w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1.5rem)] glass p-6 rounded-3xl text-center hover:-translate-y-2 transition-transform duration-300">
-                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400">2</div>
-                        <h4 class="text-lg font-bold text-slate-900 dark:text-white">[Nama Anggota 2]</h4>
-                        <p class="text-primary text-sm font-semibold mb-2">[Role / Jobdesk]</p>
-                        <p class="text-xs text-slate-500">NIM: [NIM Mahasiswa]</p>
+                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400 bg-cover bg-center" style="background-image: url('https://ui-avatars.com/api/?name=Faiz+Ahmad&background=5048e5&color=fff&size=150')"></div>
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white">Faiz Ahmad</h4>
+                        <p class="text-primary text-sm font-semibold mb-2">UI/UX Designer</p>
+                        <p class="text-xs text-slate-500">NIM: 25051204298</p>
                     </div>
 
                     <!-- Member 3 -->
                     <div class="w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1.5rem)] glass p-6 rounded-3xl text-center hover:-translate-y-2 transition-transform duration-300">
-                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400">3</div>
-                        <h4 class="text-lg font-bold text-slate-900 dark:text-white">[Nama Anggota 3]</h4>
-                        <p class="text-primary text-sm font-semibold mb-2">[Role / Jobdesk]</p>
-                        <p class="text-xs text-slate-500">NIM: [NIM Mahasiswa]</p>
+                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400 bg-cover bg-center" style="background-image: url('https://ui-avatars.com/api/?name=Bagus+Chandra&background=5048e5&color=fff&size=150')"></div>
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white">Bagus Chandra</h4>
+                        <p class="text-primary text-sm font-semibold mb-2">QA Tester</p>
+                        <p class="text-xs text-slate-500">NIM: 25051204299</p>
                     </div>
 
                     <!-- Member 4 -->
                     <div class="w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1.5rem)] glass p-6 rounded-3xl text-center hover:-translate-y-2 transition-transform duration-300">
-                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400">4</div>
-                        <h4 class="text-lg font-bold text-slate-900 dark:text-white">[Nama Anggota 4]</h4>
-                        <p class="text-primary text-sm font-semibold mb-2">[Role / Jobdesk]</p>
-                        <p class="text-xs text-slate-500">NIM: [NIM Mahasiswa]</p>
+                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400 bg-cover bg-center" style="background-image: url('https://ui-avatars.com/api/?name=Najwa+Chava&background=5048e5&color=fff&size=150')"></div>
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white">Najwa Chava</h4>
+                        <p class="text-primary text-sm font-semibold mb-2">System Analyst</p>
+                        <p class="text-xs text-slate-500">NIM: 25051204371</p>
                     </div>
 
                     <!-- Member 5 -->
                     <div class="w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1.5rem)] glass p-6 rounded-3xl text-center hover:-translate-y-2 transition-transform duration-300">
-                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400">5</div>
-                        <h4 class="text-lg font-bold text-slate-900 dark:text-white">[Nama Anggota 5]</h4>
-                        <p class="text-primary text-sm font-semibold mb-2">[Role / Jobdesk]</p>
-                        <p class="text-xs text-slate-500">NIM: [NIM Mahasiswa]</p>
+                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400 bg-cover bg-center" style="background-image: url('https://ui-avatars.com/api/?name=Tabligh+Akbar&background=5048e5&color=fff&size=150')"></div>
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white">Tabligh Akbar</h4>
+                        <p class="text-primary text-sm font-semibold mb-2">Project Manager</p>
+                        <p class="text-xs text-slate-500">NIM: 25051204331</p>
                     </div>
                 </div>
             </div>
