@@ -271,60 +271,55 @@
             </div>
         </section>
 
-        <!-- About Us Section -->
-        <section id="about" class="py-24 relative overflow-hidden">
-            <div class="absolute inset-0 bg-primary/5 dark:bg-primary/10 -skew-y-3 transform origin-top-left z-0"></div>
-
+        <!-- Team Section -->
+        <section id="about" class="py-24 relative overflow-hidden bg-white/50 dark:bg-slate-900/50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="text-primary font-bold tracking-wider uppercase text-sm mb-3">Tentang Kami</h2>
+                    <h3 class="text-3xl md:text-4xl font-extrabold">Mengenal Tim <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500">Kelompok 2</span></h3>
+                    <p class="mt-4 text-slate-600 dark:text-slate-400">Kami adalah Kelompok 2 dari mata kuliah Rekayasa Perangkat Lunak. Project Sistem Komplain & Retur ini dibuat untuk mengelola retur & komplain secara sistematis pada produk retail lokal.</p>
+                </div>
 
-                    <div class="order-2 lg:order-1 relative">
-                        <div class="absolute inset-0 bg-primary/20 rounded-3xl transform rotate-3 scale-105"></div>
-                        <img src="{{ asset('images/about_us_team.png') }}" alt="Tim anjayRPL"
-                            class="relative rounded-3xl shadow-2xl z-10 w-full object-cover transition-transform duration-500 hover:scale-[1.02]" />
+                <div class="flex flex-wrap justify-center gap-6 sm:gap-8">
+                    <!-- Member 1 -->
+                    <div class="w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1.5rem)] glass p-6 rounded-3xl text-center hover:-translate-y-2 transition-transform duration-300">
+                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400">1</div>
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white">[Nama Anggota 1]</h4>
+                        <p class="text-primary text-sm font-semibold mb-2">[Role / Jobdesk]</p>
+                        <p class="text-xs text-slate-500">NIM: [NIM Mahasiswa]</p>
                     </div>
 
-                    <div class="order-1 lg:order-2 space-y-6">
-                        <h2 class="text-primary font-bold tracking-wider uppercase text-sm mb-2">Tentang Kami</h2>
-                        <h3 class="text-4xl font-extrabold">Mengenal Tim <span
-                                class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500">anjayRPL</span>
-                        </h3>
-
-                        <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                            Kami adalah sekelompok pengembang perangkat lunak (Software Engineers) yang bersemangat
-                            dalam menciptakan solusi digital yang berdampak nyata.
-                            Project <strong>Komplain & Retur</strong> ini lahir dari visi kami untuk menyederhanakan
-                            birokrasi purna jual yang seringkali rumit.
-                        </p>
-
-                        <div class="space-y-4 pt-4">
-                            <div class="flex gap-4">
-                                <div
-                                    class="size-12 rounded-xl bg-white dark:bg-slate-800 shadow-md flex items-center justify-center shrink-0">
-                                    <span class="material-symbols-outlined text-primary">emoji_objects</span>
-                                </div>
-                                <div>
-                                    <h5 class="font-bold text-lg">Inovasi Berkelanjutan</h5>
-                                    <p class="text-sm text-slate-600 dark:text-slate-400">Kami terus mengadopsi
-                                        teknologi terbaru seperti Tailwind CSS dan arsitektur modern untuk UI/UX
-                                        terbaik.</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-4">
-                                <div
-                                    class="size-12 rounded-xl bg-white dark:bg-slate-800 shadow-md flex items-center justify-center shrink-0">
-                                    <span class="material-symbols-outlined text-primary">groups</span>
-                                </div>
-                                <div>
-                                    <h5 class="font-bold text-lg">Kolaborasi Tim</h5>
-                                    <p class="text-sm text-slate-600 dark:text-slate-400">Setiap baris kode ditulis
-                                        dengan dedikasi tinggi oleh tim kami untuk memastikan keandalan sistem.</p>
-                                </div>
-                            </div>
-                        </div>
-
+                    <!-- Member 2 -->
+                    <div class="w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1.5rem)] glass p-6 rounded-3xl text-center hover:-translate-y-2 transition-transform duration-300">
+                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400">2</div>
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white">[Nama Anggota 2]</h4>
+                        <p class="text-primary text-sm font-semibold mb-2">[Role / Jobdesk]</p>
+                        <p class="text-xs text-slate-500">NIM: [NIM Mahasiswa]</p>
                     </div>
 
+                    <!-- Member 3 -->
+                    <div class="w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1.5rem)] glass p-6 rounded-3xl text-center hover:-translate-y-2 transition-transform duration-300">
+                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400">3</div>
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white">[Nama Anggota 3]</h4>
+                        <p class="text-primary text-sm font-semibold mb-2">[Role / Jobdesk]</p>
+                        <p class="text-xs text-slate-500">NIM: [NIM Mahasiswa]</p>
+                    </div>
+
+                    <!-- Member 4 -->
+                    <div class="w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1.5rem)] glass p-6 rounded-3xl text-center hover:-translate-y-2 transition-transform duration-300">
+                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400">4</div>
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white">[Nama Anggota 4]</h4>
+                        <p class="text-primary text-sm font-semibold mb-2">[Role / Jobdesk]</p>
+                        <p class="text-xs text-slate-500">NIM: [NIM Mahasiswa]</p>
+                    </div>
+
+                    <!-- Member 5 -->
+                    <div class="w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1.5rem)] glass p-6 rounded-3xl text-center hover:-translate-y-2 transition-transform duration-300">
+                        <div class="size-24 mx-auto bg-slate-200 dark:bg-slate-700 rounded-full mb-4 shadow-lg flex items-center justify-center text-3xl font-bold text-slate-400">5</div>
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white">[Nama Anggota 5]</h4>
+                        <p class="text-primary text-sm font-semibold mb-2">[Role / Jobdesk]</p>
+                        <p class="text-xs text-slate-500">NIM: [NIM Mahasiswa]</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -365,11 +360,11 @@
                     <div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
                         <span class="material-symbols-outlined text-sm">cycle</span>
                     </div>
-                    <span class="font-bold text-lg">anjayRPL</span>
+                    <span class="font-bold text-lg">Kelompok 2 RPL</span>
                 </div>
 
                 <p class="text-slate-500 text-sm">
-                    &copy; 2026 Komplain & Retur System. Crafted with passion by anjayRPL team.
+                    &copy; 2026 Sistem Komplain & Retur Produk Retail Lokal. Crafted by Kelompok 2.
                 </p>
 
                 <div class="flex gap-4">
