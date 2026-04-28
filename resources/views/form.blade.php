@@ -76,7 +76,7 @@
                         <div class="space-y-1 mb-6">
                             <label class="text-lg font-bold text-slate-700 dark:text-slate-300" for="kendala">Kendala</label>
                             <p class="text-sm font-thin text-slate-700 dark:text-slate-300">Pilih kendala yang sesuai dengan masalah Anda</p>
-                            <select id="kendala" name="kendala" onchange="tampilkanForm()" class="w-full border border-gray-300 rounded-md px-4 py-2 mt-2 focus:border-indigo-500 focus:ring-indigo-500" required>
+                            <select id="kendala" name="kendala" onchange="tampilkanForm()" class="w-full border border-gray-300 dark:border-slate-700 dark:bg-slate-800 dark:text-white rounded-md px-4 py-2 mt-2 focus:border-indigo-500 focus:ring-indigo-500" required>
                                 <option value="" disabled selected hidden>Pilih Kendala</option>
                                 <option value="barang_rusak">Barang Rusak</option>
                                 <option value="barang_tidak_sesuai">Barang Tidak Sesuai</option>
@@ -86,7 +86,7 @@
                         <div id="form-rusak" style="display:none;" class="space-y-4">
                             <div>
                                 <label class="text-lg font-bold text-slate-700 dark:text-slate-300">Tipe Kerusakan</label>
-                                <select id="kategori_rusak" class="w-full border border-gray-300 rounded-md px-4 py-2 mt-1 focus:border-indigo-500 focus:ring-indigo-500">
+                                <select id="kategori_rusak" class="w-full border border-gray-300 dark:border-slate-700 dark:bg-slate-800 dark:text-white rounded-md px-4 py-2 mt-1 focus:border-indigo-500 focus:ring-indigo-500">
                                     <option value="" disabled selected hidden>Pilih Tipe</option>
                                     <option value="Pecah/Retak">Pecah / Retak / Penyok / Patah</option>
                                     <option value="Tidak Berfungsi">Tidak Berfungsi</option>
@@ -108,15 +108,15 @@
                             <div>
                                 <label class="text-lg font-bold text-slate-700 dark:text-slate-300">Detail Kerusakan</label>
                                 <p class="text-sm font-thin text-slate-700 dark:text-slate-300 mb-2">Deskripsikan detail kerusakannya</p>
-                                <textarea id="detail_rusak" class="w-full border border-gray-300 rounded-md p-2 focus:border-indigo-500 focus:ring-indigo-500" rows="3" placeholder="Masukkan detail kerusakan..."></textarea>
+                                <textarea id="detail_rusak" class="w-full border border-gray-300 dark:border-slate-700 dark:bg-slate-800 dark:text-white rounded-md p-2 focus:border-indigo-500 focus:ring-indigo-500" rows="3" placeholder="Masukkan detail kerusakan..."></textarea>
                             </div>
                             <div>
                                 <label class="text-lg font-bold text-slate-700 dark:text-slate-300">Nama Produk</label>
-                                <input id="produk_rusak" class="w-full border border-gray-300 rounded-md p-2 focus:border-indigo-500 focus:ring-indigo-500 mt-1" type="text" placeholder="Contoh: Keyboard Mechanical X1">
+                                <input id="produk_rusak" class="w-full border border-gray-300 dark:border-slate-700 dark:bg-slate-800 dark:text-white rounded-md p-2 focus:border-indigo-500 focus:ring-indigo-500 mt-1" type="text" placeholder="Contoh: Keyboard Mechanical X1">
                             </div>
                             <div>
                                 <label class="text-lg font-bold text-slate-700 dark:text-slate-300">Nomor Serial Pesanan</label>
-                                <input id="serial_rusak" class="w-full border border-gray-300 rounded-md p-2 focus:border-indigo-500 focus:ring-indigo-500 mt-1" type="text" placeholder="Contoh: ORD-2026-XYZ">
+                                <input id="serial_rusak" class="w-full border border-gray-300 dark:border-slate-700 dark:bg-slate-800 dark:text-white rounded-md p-2 focus:border-indigo-500 focus:ring-indigo-500 mt-1" type="text" placeholder="Contoh: ORD-2026-XYZ">
                             </div>
                             <button type="button" onclick="lanjutKeStep2()" class="w-full mt-4 rounded-lg bg-primary py-3.5 text-sm font-bold text-white shadow-lg shadow-primary/30 hover:bg-primary/90 focus:ring-4 focus:ring-primary/20 transition-all"> Selanjutnya </button>
                         </div>
@@ -124,7 +124,7 @@
                         <div id="form-salah" style="display:none;" class="space-y-4">
                             <div>
                                 <label class="text-lg font-bold text-slate-700 dark:text-slate-300">Tipe Ketidaksesuaian</label>
-                                <select id="kategori_salah" class="w-full border border-gray-300 rounded-md px-4 py-2 mt-1 focus:border-indigo-500 focus:ring-indigo-500">
+                                <select id="kategori_salah" class="w-full border border-gray-300 dark:border-slate-700 dark:bg-slate-800 dark:text-white rounded-md px-4 py-2 mt-1 focus:border-indigo-500 focus:ring-indigo-500">
                                     <option value="" disabled selected hidden>Pilih Tipe</option>
                                     <option value="Salah Warna">Salah Warna</option>
                                     <option value="Lainnya">Barang Berbeda / Model Lain / Salah Ukuran</option>
@@ -144,15 +144,15 @@
                             <div>
                                 <label class="text-lg font-bold text-slate-700 dark:text-slate-300">Detail Keterangan</label>
                                 <p class="text-sm font-thin text-slate-700 dark:text-slate-300 mb-2">Jelaskan letak ketidaksesuaiannya</p>
-                                <textarea id="detail_salah" class="w-full border border-gray-300 rounded-md p-2 focus:border-indigo-500 focus:ring-indigo-500" rows="3" placeholder="Contoh: Pesan warna hitam, datang putih..."></textarea>
+                                <textarea id="detail_salah" class="w-full border border-gray-300 dark:border-slate-700 dark:bg-slate-800 dark:text-white rounded-md p-2 focus:border-indigo-500 focus:ring-indigo-500" rows="3" placeholder="Contoh: Pesan warna hitam, datang putih..."></textarea>
                             </div>
                             <div>
                                 <label class="text-lg font-bold text-slate-700 dark:text-slate-300">Nama Produk</label>
-                                <input id="produk_salah" class="w-full border border-gray-300 rounded-md p-2 focus:border-indigo-500 focus:ring-indigo-500 mt-1" type="text" placeholder="Contoh: Kemeja Flanel">
+                                <input id="produk_salah" class="w-full border border-gray-300 dark:border-slate-700 dark:bg-slate-800 dark:text-white rounded-md p-2 focus:border-indigo-500 focus:ring-indigo-500 mt-1" type="text" placeholder="Contoh: Kemeja Flanel">
                             </div>
                             <div>
                                 <label class="text-lg font-bold text-slate-700 dark:text-slate-300">Nomor Serial Pesanan</label>
-                                <input id="serial_salah" class="w-full border border-gray-300 rounded-md p-2 focus:border-indigo-500 focus:ring-indigo-500 mt-1" type="text" placeholder="Contoh: ORD-2026-XYZ">
+                                <input id="serial_salah" class="w-full border border-gray-300 dark:border-slate-700 dark:bg-slate-800 dark:text-white rounded-md p-2 focus:border-indigo-500 focus:ring-indigo-500 mt-1" type="text" placeholder="Contoh: ORD-2026-XYZ">
                             </div>
                             <button type="button" onclick="lanjutKeStep2()" class="w-full mt-4 rounded-lg bg-primary py-3.5 text-sm font-bold text-white shadow-lg shadow-primary/30 hover:bg-primary/90 focus:ring-4 focus:ring-primary/20 transition-all"> Selanjutnya </button>
                         </div>
@@ -169,13 +169,13 @@
                         <div>
                             <label class="text-lg font-bold text-slate-700 dark:text-slate-300">Alamat Lengkap</label>
                             <p class="text-sm font-thin text-slate-700 dark:text-slate-300 mb-2">Alamat pengambilan barang retur</p>
-                            <textarea id="alamat_lengkap" name="alamat_lengkap" class="w-full border border-gray-300 rounded-md p-2 focus:border-indigo-500 focus:ring-indigo-500" rows="3" placeholder="Masukkan alamat lengkap..." required></textarea>
+                            <textarea id="alamat_lengkap" name="alamat_lengkap" class="w-full border border-gray-300 dark:border-slate-700 dark:bg-slate-800 dark:text-white rounded-md p-2 focus:border-indigo-500 focus:ring-indigo-500" rows="3" placeholder="Masukkan alamat lengkap..." required></textarea>
                         </div>
                         
                         <div>
                             <label class="text-lg font-bold text-slate-700 dark:text-slate-300">Pilih Tipe Refund</label>
                             <p class="text-sm font-thin text-slate-700 dark:text-slate-300 mb-2">Metode pengembalian dana</p>
-                            <select id="tipe_refund" name="tipe_refund" onchange="toggleMetodeRefund()" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:border-indigo-500 focus:ring-indigo-500" required>
+                            <select id="tipe_refund" name="tipe_refund" onchange="toggleMetodeRefund()" class="w-full border border-gray-300 dark:border-slate-700 dark:bg-slate-800 dark:text-white rounded-md px-4 py-2 focus:border-indigo-500 focus:ring-indigo-500" required>
                                 <option value="" disabled selected hidden>Pilih Tipe</option>
                                 <option value="bank">Transfer Bank</option>
                                 <option value="ewallet">E-Wallet</option>
@@ -185,7 +185,7 @@
                         <div id="opsi_bank" style="display:none;" class="space-y-4 p-4 border border-slate-200 rounded-lg bg-slate-50 dark:bg-slate-800">
                             <div>
                                 <label class="text-sm font-bold text-slate-700 dark:text-slate-300">Pilih Bank</label>
-                                <select id="pilihan_bank" name="pilihan_bank" class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 text-sm focus:border-indigo-500 focus:ring-indigo-500">
+                                <select id="pilihan_bank" name="pilihan_bank" class="w-full border border-gray-300 dark:border-slate-700 dark:bg-slate-800 dark:text-white rounded-md px-3 py-2 mt-1 text-sm focus:border-indigo-500 focus:ring-indigo-500">
                                     <option value="" disabled selected hidden>Pilih Bank</option>
                                     <option value="BCA">BCA (10 Digit)</option>
                                     <option value="BRI">BRI (15 Digit)</option>
@@ -195,14 +195,14 @@
                             </div>
                             <div>
                                 <label class="text-sm font-bold text-slate-700 dark:text-slate-300">Nomor Rekening</label>
-                                <input id="nomor_rekening" name="nomor_rekening" class="w-full border border-gray-300 rounded-md p-2 mt-1 text-sm focus:border-indigo-500 focus:ring-indigo-500" type="text" inputmode="numeric" pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="Masukkan nomor rekening valid">
+                                <input id="nomor_rekening" name="nomor_rekening" class="w-full border border-gray-300 dark:border-slate-700 dark:bg-slate-800 dark:text-white rounded-md p-2 mt-1 text-sm focus:border-indigo-500 focus:ring-indigo-500" type="text" inputmode="numeric" pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="Masukkan nomor rekening valid">
                             </div>
                         </div>
 
                         <div id="opsi_ewallet" style="display:none;" class="space-y-4 p-4 border border-slate-200 rounded-lg bg-slate-50 dark:bg-slate-800">
                             <div>
                                 <label class="text-sm font-bold text-slate-700 dark:text-slate-300">Pilih E-Wallet</label>
-                                <select id="pilihan_ewallet" name="pilihan_ewallet" class="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 text-sm focus:border-indigo-500 focus:ring-indigo-500">
+                                <select id="pilihan_ewallet" name="pilihan_ewallet" class="w-full border border-gray-300 dark:border-slate-700 dark:bg-slate-800 dark:text-white rounded-md px-3 py-2 mt-1 text-sm focus:border-indigo-500 focus:ring-indigo-500">
                                     <option value="" disabled selected hidden>Pilih Aplikasi</option>
                                     <option value="GOPAY">GoPay</option>
                                     <option value="OVO">OVO</option>
@@ -212,7 +212,7 @@
                             </div>
                             <div>
                                 <label class="text-sm font-bold text-slate-700 dark:text-slate-300">Nomor Handphone Terdaftar</label>
-                                <input id="nomor_hp_ewallet" name="nomor_hp_ewallet" class="w-full border border-gray-300 rounded-md p-2 mt-1 text-sm focus:border-indigo-500 focus:ring-indigo-500" type="text" inputmode="numeric" pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="Contoh: 08123456789">
+                                <input id="nomor_hp_ewallet" name="nomor_hp_ewallet" class="w-full border border-gray-300 dark:border-slate-700 dark:bg-slate-800 dark:text-white rounded-md p-2 mt-1 text-sm focus:border-indigo-500 focus:ring-indigo-500" type="text" inputmode="numeric" pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="Contoh: 08123456789">
                             </div>
                         </div>
 

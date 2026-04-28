@@ -105,7 +105,7 @@
 
                         <div id="form-penolakan" style="display:none;" class="mt-4 bg-red-50 p-4 rounded-xl border border-red-200">
                             <h4 class="text-sm font-bold text-red-600 mb-2">Alasan Penolakan</h4>
-                            <textarea id="input-alasan" class="w-full rounded-lg border-red-200 p-3 text-sm" rows="3" placeholder="Alasan tolak..."></textarea>
+                            <textarea id="input-alasan" class="w-full rounded-lg border-red-200 dark:border-red-800 dark:bg-slate-800 dark:text-white p-3 text-sm" rows="3" placeholder="Alasan tolak..."></textarea>
                             <div class="flex gap-2 mt-3">
                                 <button onclick="batalTolak()" class="w-1/3 py-2 bg-slate-200 text-slate-700 rounded-lg text-xs font-bold hover:bg-slate-300">Batal</button>
                                 <button onclick="konfirmasiTolak()" class="w-2/3 py-2 bg-red-600 text-white rounded-lg text-xs font-bold hover:bg-red-700">Kirim</button>
