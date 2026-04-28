@@ -191,30 +191,30 @@
                             class="relative z-10 w-full max-w-lg object-contain animate-float drop-shadow-2xl" />
 
                         <!-- Floating Badges -->
-                        <div class="absolute top-1/4 -left-6 bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 glass animate-float"
+                        <div class="absolute top-1/4 -left-2 sm:-left-6 z-20 scale-90 sm:scale-100 origin-left bg-white dark:bg-slate-800 p-3 sm:p-4 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 glass animate-float"
                             style="animation-delay: 1s;">
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-2 sm:gap-3">
                                 <div
-                                    class="size-10 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-500">
-                                    <span class="material-symbols-outlined">verified</span>
+                                    class="size-8 sm:size-10 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-500">
+                                    <span class="material-symbols-outlined text-[18px] sm:text-[24px]">verified</span>
                                 </div>
                                 <div>
-                                    <p class="text-sm font-bold">100% Aman</p>
-                                    <p class="text-xs text-slate-500">Garansi Resolusi</p>
+                                    <p class="text-xs sm:text-sm font-bold">100% Aman</p>
+                                    <p class="text-[10px] sm:text-xs text-slate-500">Garansi Resolusi</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="absolute bottom-1/4 -right-6 bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 glass animate-float"
+                        <div class="absolute bottom-1/4 -right-2 sm:-right-6 z-20 scale-90 sm:scale-100 origin-right bg-white dark:bg-slate-800 p-3 sm:p-4 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 glass animate-float"
                             style="animation-delay: 1.5s;">
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-2 sm:gap-3">
                                 <div
-                                    class="size-10 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center text-amber-500">
-                                    <span class="material-symbols-outlined">bolt</span>
+                                    class="size-8 sm:size-10 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center text-amber-500">
+                                    <span class="material-symbols-outlined text-[18px] sm:text-[24px]">bolt</span>
                                 </div>
                                 <div>
-                                    <p class="text-sm font-bold">Respon Cepat</p>
-                                    <p class="text-xs text-slate-500">
+                                    <p class="text-xs sm:text-sm font-bold">Respon Cepat</p>
+                                    <p class="text-[10px] sm:text-xs text-slate-500">
                                         < 24 Jam Kerja</p>
                                 </div>
                             </div>
