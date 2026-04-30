@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Manajemen Komplain</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5048e5",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#121121",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav { background-color: #5048e5; color: white; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased h-screen overflow-hidden flex">
+
+<aside class="w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col hidden md:flex transition-all">
+    <div class="h-16 flex items-center px-6 border-b border-slate-200 dark:border-slate-800 gap-3">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white shadow-lg shadow-primary/20">
+            <span class="material-symbols-outlined text-[20px]">cycle</span>
+        </div>
+        <h1 class="text-lg font-bold tracking-tight">Komplain & Retur</h1>
+    </div>
+    <nav class="flex-1 px-4 py-4 space-y-1">
+        <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="dashboard.html">
+            <span class="material-symbols-outlined">home</span>
+            <span class="text-sm font-medium">Dashboard</span>
+        </a>
+        <a class="flex items-center gap-3 px-3 py-2 rounded-lg active-nav">
+            <span class="material-symbols-outlined">inventory_2</span>
+            <span class="text-sm font-medium">Manajemen Komplain</span>
+        </a>
+    </nav>
+    <div class="p-4 border-t border-slate-200 dark:border-slate-800">
+        <a href="login.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors font-semibold text-sm">
+            <span class="material-symbols-outlined text-[20px]">logout</span> Sign Out
+        </a>
+    </div>
+</aside>
+
+    <div class="flex-1 flex flex-col overflow-hidden">
+        <header class="h-16 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">inventory_2</span>
+                <h2 class="text-lg font-bold">Manajemen Komplain</h2>
+            </div>
+        </header>
+
+        <main class="flex-1 overflow-y-auto p-4 md:p-6 flex flex-col">
+            <div class="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <h1 class="text-2xl font-black tracking-tight">Manajemen Komplain</h1>
+                    <p class="text-sm text-slate-500 mt-1">Kelola dan verifikasi pengajuan retur customer</p>
+                </div>
+            </div>
+            
+            <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden flex flex-col h-full">
+
+                <div class="overflow-x-auto flex-1">
+                    <table class="w-full text-left text-sm whitespace-nowrap">
+                        <thead class="bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 sticky top-0 border-b border-slate-200 dark:border-slate-700">
+                            <tr>
+                                <th class="px-4 py-3 font-bold uppercase tracking-wider text-xs cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors group select-none" onclick="sortTable('id')">
+                                    <div class="flex items-center gap-1">
+                                        ID Komplain
+                                        <span class="material-symbols-outlined text-[14px] text-slate-400 transition-colors group-hover:text-primary" id="icon-sort-id">unfold_more</span>
+                                    </div>
+                                </th>
+                                
+                                <th class="px-4 py-3 font-bold uppercase tracking-wider text-xs">Customer</th>
+                                <th class="px-4 py-3 font-bold uppercase tracking-wider text-xs">Produk</th>
+                                <th class="px-4 py-3 font-bold uppercase tracking-wider text-xs">Status</th>
+                                
+                                <th class="px-4 py-3 font-bold uppercase tracking-wider text-xs cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors group select-none" onclick="sortTable('date')">
+                                    <div class="flex items-center gap-1">
+                                        Tgl Pengajuan
+                                        <span class="material-symbols-outlined text-[14px] text-slate-400 transition-colors group-hover:text-primary" id="icon-sort-date">unfold_more</span>
+                                    </div>
+                                </th>
+                                
+                                <th class="px-4 py-3 font-bold uppercase tracking-wider text-xs text-center">Aksi</th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody id="table-body" class="divide-y divide-slate-200 dark:divide-slate-800">
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                <td class="px-4 py-2.5 font-bold text-primary">#CMP-9280</td>
+                                <td class="px-4 py-2.5 font-medium">Amelia Putri</td>
+                                <td class="px-4 py-2.5 text-slate-500">Keyboard Mechanical X1</td>
+                                <td class="px-4 py-2.5">
+                                    <span class="px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-xs font-bold flex items-center gap-1 w-max">
+                                        <span class="size-1.5 rounded-full bg-amber-500 animate-pulse"></span> Pending
+                                    </span>
+                                </td>
+                                <td class="px-4 py-2.5 text-slate-500">05/04/2026</td>
+                                <td class="px-4 py-2.5 text-center">
+                                    <a href="detail-pending.html" class="inline-flex items-center gap-1 px-2 py-1 bg-primary/10 text-primary hover:bg-primary hover:text-white rounded font-bold text-xs transition-all">
+                                        <span class="material-symbols-outlined text-[14px]">visibility</span> Review
+                                    </a>
+                                </td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                <td class="px-4 py-2.5 font-bold text-primary">#CMP-9275</td>
+                                <td class="px-4 py-2.5 font-medium">Citra Kirana</td>
+                                <td class="px-4 py-2.5 text-slate-500">Mouse Wireless Pro</td>
+                                <td class="px-4 py-2.5">
+                                    <span class="px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-bold flex items-center gap-1 w-max">
+                                        <span class="size-1.5 rounded-full bg-purple-500 animate-pulse"></span> Approved
+                                    </span>
+                                </td>
+                                <td class="px-4 py-2.5 text-slate-500">04/04/2026</td>
+                                <td class="px-4 py-2.5 text-center">
+                                    <a href="detail-approved.html" class="inline-flex items-center gap-1 px-2 py-1 text-slate-500 hover:text-primary transition-colors font-bold text-xs">
+                                        Detail
+                                    </a>
+                                </td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                <td class="px-4 py-2.5 font-bold text-primary">#CMP-9265</td>
+                                <td class="px-4 py-2.5 font-medium">Eka Putri</td>
+                                <td class="px-4 py-2.5 text-slate-500">Kursi Ergonomis Hitam</td>
+                                <td class="px-4 py-2.5">
+                                    <span class="px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-xs font-bold flex items-center gap-1 w-max">
+                                        <span class="material-symbols-outlined text-[12px]">check_circle</span> Done
+                                    </span>
+                                </td>
+                                <td class="px-4 py-2.5 text-slate-500">28/03/2026</td>
+                                <td class="px-4 py-2.5 text-center">
+                                    <a href="detail-done.html" class="inline-flex items-center gap-1 px-2 py-1 text-slate-500 hover:text-primary transition-colors font-bold text-xs">
+                                        Detail
+                                    </a>
+                                </td>
+                            </tr>
+                            
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                <td class="px-4 py-2.5 font-bold text-primary">#CMP-9270</td>
+                                <td class="px-4 py-2.5 font-medium">Dimas Anggara</td>
+                                <td class="px-4 py-2.5 text-slate-500">Headset Gaming G733</td>
+                                <td class="px-4 py-2.5">
+                                    <span class="px-2 py-0.5 rounded-full bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400 text-xs font-bold flex items-center gap-1 w-max">
+                                        <span class="material-symbols-outlined text-[12px]">loop</span> In Progress
+                                    </span>
+                                </td>
+                                <td class="px-4 py-2.5 text-slate-500">13/03/2026</td>
+                                <td class="px-4 py-2.5 text-center">
+                                    <a href="detail-in-progress.html" class="inline-flex items-center gap-1 px-2 py-1 bg-primary/10 text-primary hover:bg-primary hover:text-white rounded font-bold text-xs transition-all">
+                                    Proses
+                                    </a>
+                                </td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                <td class="px-4 py-2.5 font-bold text-primary">#CMP-9260</td>
+                                <td class="px-4 py-2.5 font-medium">Fajar Setiawan</td>
+                                <td class="px-4 py-2.5 text-slate-500">Meja Lipat Portable</td>
+                                <td class="px-4 py-2.5">
+                                    <span class="px-2 py-0.5 rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs font-bold flex items-center gap-1 w-max">
+                                        <span class="material-symbols-outlined text-[12px]">cancel</span> Rejected
+                                    </span>
+                                </td>
+                                <td class="px-4 py-2.5 text-slate-500">25/03/2026</td>
+                                <td class="px-4 py-2.5 text-center">
+                                    <a href="detail-rejected.html" class="inline-flex items-center gap-1 px-2 py-1 text-slate-500 hover:text-primary transition-colors font-bold text-xs">
+                                        Detail
+                                    </a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+        </main>
+    </div>
+
+    <script>
+        // Variabel untuk melacak status sorting saat ini
+        let sortDirId = 'default'; 
+        let sortDirDate = 'default';
+
+        function sortTable(column) {
+            const tableBody = document.getElementById("table-body");
+            const rows = Array.from(tableBody.querySelectorAll("tr"));
+            
+            const iconId = document.getElementById("icon-sort-id");
+            const iconDate = document.getElementById("icon-sort-date");
+
+            if (column === 'id') {
+                // Toggle arah sorting untuk ID (Asc -> Desc -> Asc)
+                sortDirId = (sortDirId === 'asc') ? 'desc' : 'asc';
+                sortDirDate = 'default'; // Reset indikator kolom tanggal
+                
+                // Ubah ikon panah dan warna
+                iconId.innerText = sortDirId === 'asc' ? 'expand_less' : 'expand_more';
+                iconId.classList.add('text-primary');
+                
+                iconDate.innerText = 'unfold_more';
+                iconDate.classList.remove('text-primary');
+
+                // Proses sorting baris
+                rows.sort((a, b) => {
+                    let idA = a.querySelector("td:nth-child(1)").innerText.trim();
+                    let idB = b.querySelector("td:nth-child(1)").innerText.trim();
+                    return sortDirId === 'asc' ? idA.localeCompare(idB) : idB.localeCompare(idA);
+                });
+            } 
+            else if (column === 'date') {
+                // Toggle arah sorting untuk Tanggal (Desc -> Asc -> Desc)
+                sortDirDate = (sortDirDate === 'desc') ? 'asc' : 'desc';
+                sortDirId = 'default'; // Reset indikator kolom ID
+
+                // Ubah ikon panah dan warna
+                iconDate.innerText = sortDirDate === 'asc' ? 'expand_less' : 'expand_more';
+                iconDate.classList.add('text-primary');
+                
+                iconId.innerText = 'unfold_more';
+                iconId.classList.remove('text-primary');
+
+                // Proses sorting baris
+                rows.sort((a, b) => {
+                    let dateAStr = a.querySelector("td:nth-child(5)").innerText.trim();
+                    let dateBStr = b.querySelector("td:nth-child(5)").innerText.trim();
+                    
+                    // Membalik format DD/MM/YYYY menjadi YYYYMMDD
+                    let dateA = dateAStr.split('/').reverse().join('');
+                    let dateB = dateBStr.split('/').reverse().join('');
+
+                    return sortDirDate === 'asc' ? dateA.localeCompare(dateB) : dateB.localeCompare(dateA);
+                });
+            }
+
+            // Memasukkan baris yang sudah diurutkan ke dalam tabel
+            tableBody.innerHTML = "";
+            rows.forEach(row => tableBody.appendChild(row));
+        }
+    </script>
+</body>
+</html>
