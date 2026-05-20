@@ -42,6 +42,13 @@ Route::middleware('auth')->group(function () {
     
     Route::post('/complaint/{id}/status', [AdminController::class, 'updateStatus'])->name('complaint.update-status');
 
+    Route::get('/manajemen-admin', [AdminController::class, 'indexAdmin'])->name('admin.index');
+    Route::get('/tambah-admin', [AdminController::class, 'showAddAdminForm'])->name('admin.add');
+    Route::post('/tambah-admin', [AdminController::class, 'storeAdmin'])->name('admin.store');
+    Route::get('/admin/{id}/edit', [AdminController::class, 'editAdmin'])->name('admin.edit');
+    Route::put('/admin/{id}', [AdminController::class, 'updateAdmin'])->name('admin.update');
+    Route::delete('/admin/{id}', [AdminController::class, 'deleteAdmin'])->name('admin.destroy');
+
     Route::get('/detail-pending', function () {
         return view('detail-pending');
     });

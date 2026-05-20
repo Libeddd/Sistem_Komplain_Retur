@@ -64,6 +64,10 @@
             <span class="material-symbols-outlined">inventory_2</span>
             <span class="text-sm font-medium">Manajemen Komplain</span>
         </a>
+        <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="{{ route('admin.index') }}">
+            <span class="material-symbols-outlined">shield_person</span>
+            <span class="text-sm font-medium">Manajemen Admin</span>
+        </a>
     </nav>
     <div class="p-4 border-t border-slate-200 dark:border-slate-800">
         <a href="{{ route('logout') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors font-semibold text-sm">
@@ -298,6 +302,10 @@
         <a href="{{ url('/manajemen-komplain') }}" class="flex flex-col items-center justify-center gap-1 text-slate-400 hover:text-primary dark:hover:text-primary transition-colors w-full h-full">
             <span class="material-symbols-outlined text-[24px]">inventory_2</span>
             <span class="text-[10px] font-medium">Manajemen</span>
+        </a>
+        <a href="{{ route('admin.index') }}" class="flex flex-col items-center justify-center gap-1 text-slate-400 hover:text-primary transition-colors w-full h-full">
+            <span class="material-symbols-outlined text-[24px]">shield_person</span>
+            <span class="text-[10px] font-medium">Admin</span>
         </a>
         <a href="{{ route('logout') }}" class="flex flex-col items-center justify-center gap-1 text-slate-400 hover:text-red-500 transition-colors w-full h-full">
             <span class="material-symbols-outlined text-[24px]">logout</span>

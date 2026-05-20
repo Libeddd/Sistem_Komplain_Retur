@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Complaint;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -61,5 +64,99 @@ class AdminController extends Controller
         $complaint->save();
 
         return redirect()->back()->with('success', 'Status komplain berhasil diperbarui!');
+    }
+
+    public function showAddAdminForm()
+    {
+        if (Auth::user()->role !== 'admin') {
+            abort(403, 'Unauthorized action.');
+        }
+        return view('tambah-admin');
+    }
+
+    public function storeAdmin(Request $request)
+    {
+        if (Auth::user()->role !== 'admin') {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:3',
+        ]);
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => 'admin',
+        ]);
+
+        return redirect()->route('admin.index')->with('success', 'Akun admin baru berhasil ditambahkan!');
+    }
+
+    public function indexAdmin()
+    {
+        if (Auth::user()->role !== 'admin') {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $admins = User::where('role', 'admin')->get();
+        return view('manajemen-admin', compact('admins'));
+    }
+
+    public function editAdmin($id)
+    {
+        if (Auth::user()->role !== 'admin') {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $admin = User::findOrFail($id);
+        return view('edit-admin', compact('admin'));
+    }
+
+    public function updateAdmin(Request $request, $id)
+    {
+        if (Auth::user()->role !== 'admin') {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $admin = User::findOrFail($id);
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $admin->id,
+            'password' => 'nullable|string|min:3',
+        ]);
+
+        $admin->name = $request->name;
+        $admin->email = $request->email;
+
+        if ($request->filled('password')) {
+            $admin->password = Hash::make($request->password);
+        }
+
+        $admin->save();
+
+        return redirect()->route('admin.index')->with('success', 'Data admin berhasil diperbarui!');
+    }
+
+    public function deleteAdmin($id)
+    {
+        if (Auth::user()->role !== 'admin') {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $admin = User::findOrFail($id);
+
+        // Prevent self-deletion
+        if ($admin->id === Auth::id()) {
+            return redirect()->back()->with('error', 'Anda tidak dapat menghapus akun Anda sendiri.');
+        }
+
+        $admin->delete();
+
+        return redirect()->route('admin.index')->with('success', 'Akun admin berhasil dihapus!');
     }
 }
