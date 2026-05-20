@@ -87,7 +87,7 @@
                     
                     <div class="space-y-2">
                         <div class="flex items-center justify-between">
-                            <label class="text-sm font-semibold text-slate-700 dark:text-slate-300" for="password">Password</label>
+                            <label class="text-sm font-semibold text-slate-700 dark:text-slate-300" for="password">Kata Sandi</label>
                         </div>
                         <div class="relative group">
                             <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">lock</span>
@@ -98,7 +98,7 @@
                         </div>
                     </div>
                     
-                    <button class="w-full rounded-lg bg-primary py-3.5 text-sm font-bold text-white shadow-lg shadow-primary/30 hover:bg-primary/90 focus:ring-4 focus:ring-primary/20 transition-all" type="submit"> Login </button>
+                    <button class="w-full rounded-lg bg-primary py-3.5 text-sm font-bold text-white shadow-lg shadow-primary/30 hover:bg-primary/90 focus:ring-4 focus:ring-primary/20 transition-all" type="submit"> Masuk </button>
                 </form>
 
                 <div class="mt-8 text-center">

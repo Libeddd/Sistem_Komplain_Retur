@@ -83,6 +83,16 @@
         </header>
 
         <main class="flex-1 overflow-y-auto p-4 md:p-6 pb-20 md:pb-6 flex flex-col">
+            @if(session('success'))
+                <div class="mb-4 p-3 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-emerald-600 dark:text-emerald-400 font-medium text-sm">
+                    {{ session('success') }}
+                </div>
+            @endif
+            @if(session('error'))
+                <div class="mb-4 p-3 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 font-medium text-sm">
+                    {{ session('error') }}
+                </div>
+            @endif
             <div class="mb-6 md:mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
                     <h1 class="text-2xl font-black tracking-tight">Manajemen Komplain</h1>
@@ -125,19 +135,28 @@
                                 <td class="px-4 py-2.5 font-medium">{{ $complaint->user->name }}</td>
                                 <td class="px-4 py-2.5 text-slate-500">{{ $complaint->product_name }}</td>
                                 <td class="px-4 py-2.5">
-                                    <form method="POST" action="{{ route('complaint.update-status', $complaint->id) }}" class="flex items-center">
+                                    <form method="POST" action="{{ route('complaint.update-status', $complaint->id) }}" class="flex flex-col gap-2" enctype="multipart/form-data">
                                         @csrf
-                                        <select name="status" onchange="this.form.submit()" class="text-xs font-bold rounded-full py-1 pl-3 pr-8 border-none focus:ring-2 focus:ring-primary appearance-none cursor-pointer
+                                        <select name="status" class="text-xs font-bold rounded-full py-1 pl-3 pr-8 border-none focus:ring-2 focus:ring-primary appearance-none cursor-pointer
                                             @if($complaint->status == 'pending') bg-amber-100 text-amber-600
-                                            @elseif($complaint->status == 'approved') bg-blue-100 text-blue-600
+                                            @elseif($complaint->status == 'in_review') bg-indigo-100 text-indigo-600
+                                            @elseif($complaint->status == 'approved_menunggu_resi') bg-blue-100 text-blue-600
+                                            @elseif($complaint->status == 'in_progress') bg-purple-100 text-purple-600
                                             @elseif($complaint->status == 'rejected') bg-red-100 text-red-600
                                             @else bg-emerald-100 text-emerald-600 @endif
-                                        ">
+                                        " onchange="handleStatusChange(this, '{{ $complaint->refund_method }}')">
                                             <option value="pending" {{ $complaint->status == 'pending' ? 'selected' : '' }}>Pending</option>
-                                            <option value="approved" {{ $complaint->status == 'approved' ? 'selected' : '' }}>Diproses</option>
+                                            <option value="in_review" {{ $complaint->status == 'in_review' ? 'selected' : '' }}>Dalam Tinjauan</option>
+                                            <option value="approved_menunggu_resi" {{ $complaint->status == 'approved_menunggu_resi' ? 'selected' : '' }}>Menunggu Resi</option>
+                                            <option value="in_progress" {{ $complaint->status == 'in_progress' ? 'selected' : '' }}>Sedang Dikirim</option>
                                             <option value="rejected" {{ $complaint->status == 'rejected' ? 'selected' : '' }}>Ditolak</option>
                                             <option value="done" {{ $complaint->status == 'done' ? 'selected' : '' }}>Done</option>
                                         </select>
+                                        <div class="bukti-transfer-container hidden mt-1 flex-col gap-1 w-32">
+                                            <label class="text-[10px] font-bold text-slate-500">Bukti Transfer (Wajib)</label>
+                                            <input type="file" name="bukti_transfer" class="text-[10px] w-full" accept=".jpg,.jpeg,.png,.pdf">
+                                            <button type="button" onclick="this.closest('form').submit()" class="bg-primary text-white text-[10px] px-2 py-1 rounded">Simpan</button>
+                                        </div>
                                     </form>
                                 </td>
                                 <td class="px-4 py-2.5 text-slate-500">{{ $complaint->created_at->format('d/m/Y') }}</td>
@@ -248,6 +267,21 @@
     </div>
 
     <script>
+        function handleStatusChange(selectElement, refundMethod) {
+            const form = selectElement.closest('form');
+            const fileContainer = form.querySelector('.bukti-transfer-container');
+            const selectedStatus = selectElement.value;
+            
+            if (selectedStatus === 'done' && refundMethod.includes('Transfer Bank')) {
+                fileContainer.classList.remove('hidden');
+                fileContainer.classList.add('flex');
+            } else {
+                fileContainer.classList.add('hidden');
+                fileContainer.classList.remove('flex');
+                form.submit();
+            }
+        }
+
         function openReviewModal(data) {
             document.getElementById('modal-subtitle').innerText = `ID: ${data.complaint_code}`;
             document.getElementById('modal-customer-name').innerText = data.user_name;

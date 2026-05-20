@@ -18,6 +18,8 @@ class Complaint extends Model
         'unboxing_video_path',
         'status',
         'completed_at',
+        'nomor_resi',
+        'bukti_transfer_path',
     ];
 
     public function user()

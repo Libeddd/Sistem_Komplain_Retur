@@ -53,10 +53,21 @@ class AdminController extends Controller
     public function updateStatus(Request $request, $id)
     {
         $request->validate([
-            'status' => 'required|in:pending,approved,done,rejected'
+            'status' => 'required|in:pending,in_review,approved_menunggu_resi,in_progress,done,rejected',
+            'bukti_transfer' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:5120',
         ]);
 
         $complaint = Complaint::findOrFail($id);
+        
+        if ($request->status === 'done' && str_contains($complaint->refund_method, 'Transfer Bank') && !$complaint->bukti_transfer_path && !$request->hasFile('bukti_transfer')) {
+            return redirect()->back()->with('error', 'Harap unggah bukti transfer terlebih dahulu sebelum menyelesaikan komplain.');
+        }
+
+        if ($request->hasFile('bukti_transfer')) {
+            $path = $request->file('bukti_transfer')->store('complaints/bukti_transfer', 'public');
+            $complaint->bukti_transfer_path = $path;
+        }
+
         $complaint->status = $request->status;
         if ($request->status === 'done') {
             $complaint->completed_at = now();

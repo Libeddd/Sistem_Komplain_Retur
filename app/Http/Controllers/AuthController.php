@@ -12,9 +12,12 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s\.\,\-]+$/'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users', 'regex:/@gmail\.com$/'],
             'password' => 'required|string|min:3',
+        ], [
+            'name.regex' => 'Nama hanya boleh mengandung huruf, spasi, titik, dan koma.',
+            'email.regex' => 'Email harus menggunakan domain @gmail.com.',
         ]);
 
         $user = User::create([

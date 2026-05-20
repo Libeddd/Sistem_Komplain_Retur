@@ -42,6 +42,9 @@
 <body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
     <div class="relative flex min-h-screen w-full flex-col items-center justify-start pt-5 overflow-x-hidden p-4 sm:p-6">
         
+        <a href="{{ url('/home') }}" class="absolute top-4 left-4 p-2 rounded-full bg-white dark:bg-slate-800 shadow-md hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors z-50 flex items-center text-sm font-medium text-slate-700 dark:text-slate-300">
+            <span class="material-symbols-outlined mr-1 text-[20px]">arrow_back</span> Kembali
+        </a>
         <button id="theme-toggle" class="absolute top-4 right-4 p-2 rounded-full bg-white dark:bg-slate-800 shadow-md hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors z-50">
             <span class="material-symbols-outlined dark:hidden">dark_mode</span>
             <span class="material-symbols-outlined hidden dark:block text-yellow-400">light_mode</span>
@@ -167,9 +170,11 @@
                         </div>
 
                         <div>
-                            <label class="text-lg font-bold text-slate-700 dark:text-slate-300">Alamat Lengkap</label>
-                            <p class="text-sm font-thin text-slate-700 dark:text-slate-300 mb-2">Alamat pengambilan barang retur</p>
-                            <textarea id="alamat_lengkap" name="alamat_lengkap" class="w-full border border-gray-300 dark:border-slate-700 dark:bg-slate-800 dark:text-white rounded-md p-2 focus:border-indigo-500 focus:ring-indigo-500" rows="3" placeholder="Masukkan alamat lengkap..." required></textarea>
+                            <label class="text-lg font-bold text-slate-700 dark:text-slate-300">Alamat Pengembalian Barang (Gudang)</label>
+                            <div class="p-4 mt-2 bg-slate-100 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+                                <p class="text-sm font-medium text-slate-800 dark:text-slate-200">Gudang Utama Retur RPL</p>
+                                <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Jl. Contoh Retur No. 123, Komplek Pergudangan, Jakarta Selatan, 12345</p>
+                            </div>
                         </div>
                         
                         <div>
@@ -303,7 +308,6 @@
 
                 function submitValidasiAkhir() {
                     let kendala = document.getElementById("kendala").value;
-                    let alamat = document.getElementById("alamat_lengkap").value;
                     let tipeRefund = document.getElementById("tipe_refund").value;
                     let kategori = kendala === "barang_rusak" ? document.getElementById("kategori_rusak").value : document.getElementById("kategori_salah").value;
                     let detail = kendala === "barang_rusak" ? document.getElementById("detail_rusak").value : document.getElementById("detail_salah").value;
@@ -313,7 +317,6 @@
                     document.getElementById("detail_final").value = detail;
                     document.getElementById("produk_final").value = produk;
                     document.getElementById("serial_final").value = serial;
-                    if (!alamat.trim()) { alert("Alamat lengkap wajib diisi!"); return; }
                     if (tipeRefund === "bank") {
                         let namaBank = document.getElementById("pilihan_bank").value;
                         let noRekening = document.getElementById("nomor_rekening").value;

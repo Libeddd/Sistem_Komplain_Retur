@@ -65,7 +65,7 @@
             </div>
 
             <div class="p-8">
-                <form class="space-y-6" method="POST" action="{{ route('register.submit') }}">
+                <form class="space-y-6" method="POST" action="{{ route('register.submit') }}" onsubmit="return validateRegister(event)">
                     @csrf
                     @if ($errors->any())
                         <div class="bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 p-3 rounded-lg text-sm border border-red-200 dark:border-red-800">
@@ -79,11 +79,11 @@
                     
                     <div class="space-y-2">
                         <div class="flex items-center justify-between">
-                            <label class="text-sm font-semibold text-slate-700 dark:text-slate-300" for="name">Name</label>
+                            <label class="text-sm font-semibold text-slate-700 dark:text-slate-300" for="name">Nama Lengkap</label>
                         </div>
                         <div class="relative group">
                             <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">person</span>
-                            <input class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 py-3 pl-11 pr-12 text-slate-900 dark:text-white focus:border-primary focus:ring-primary/20 transition-all outline-none" id="name" name="name" placeholder="Your Name" required="" type="text"/>
+                            <input class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 py-3 pl-11 pr-12 text-slate-900 dark:text-white focus:border-primary focus:ring-primary/20 transition-all outline-none" id="name" name="name" placeholder="Nama Lengkap Anda" required="" type="text"/>
                         </div>
                     </div>
 
@@ -97,7 +97,7 @@
 
                     <div class="space-y-2">
                         <div class="flex items-center justify-between">
-                            <label class="text-sm font-semibold text-slate-700 dark:text-slate-300" for="password">Password</label>
+                            <label class="text-sm font-semibold text-slate-700 dark:text-slate-300" for="password">Kata Sandi</label>
                         </div>
                         <div class="relative group">
                             <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">lock</span>
@@ -110,7 +110,7 @@
 
 
                     <button class="w-full rounded-lg bg-primary py-3.5 text-sm font-bold text-white shadow-lg shadow-primary/30 hover:bg-primary/90 focus:ring-4 focus:ring-primary/20 transition-all" type="submit">
-                        Register
+                        Daftar
                     </button>
                 </form>
 
@@ -136,6 +136,22 @@
                 pwdInput.type = "password";
                 eyeIcon.innerText = "visibility";
             }
+        }
+        
+        function validateRegister(event) {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const nameRegex = /^[a-zA-Z\s\.\,\-]+$/;
+            
+            if (!nameRegex.test(name)) {
+                alert('Nama hanya boleh mengandung huruf, spasi, titik, dan koma.');
+                return false;
+            }
+            if (!email.endsWith('@gmail.com')) {
+                alert('Email harus menggunakan domain @gmail.com');
+                return false;
+            }
+            return true;
         }
     </script>
     <script>

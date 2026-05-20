@@ -125,7 +125,7 @@
                     @if (Route::has('login'))
                         @auth
                             <a href="{{ url('/home') }}"
-                                class="px-4 sm:px-5 py-2.5 rounded-lg font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-sm sm:text-base">Dashboard</a>
+                                class="px-4 sm:px-5 py-2.5 rounded-lg font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-sm sm:text-base">Beranda</a>
                         @else
                             <a href="{{ route('login') }}"
                                 class="flex items-center gap-1 px-2 sm:px-5 py-2.5 rounded-lg font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
@@ -180,7 +180,7 @@
                         </div>
                     </div>
 
-                    <div class="relative lg:h-[600px] flex justify-center items-center animate-fade-in-up"
+                    <div class="relative lg:h-[600px] flex justify-center items-center mt-12 lg:mt-0 animate-fade-in-up"
                         style="animation-delay: 0.2s;">
                         <!-- Abstract decorative circle -->
                         <div

@@ -22,7 +22,6 @@ class ComplaintController extends Controller
             'detail' => 'required|string',
             'produk_name' => 'required|string',
             'serial' => 'required|string',
-            'alamat_lengkap' => 'required|string',
             'tipe_refund' => 'required|in:bank,ewallet',
             'foto' => 'required|file|mimes:jpg,jpeg,png,pdf|max:5120',
             'video' => 'nullable|file|mimes:mp4,mov|max:51200',
@@ -41,7 +40,7 @@ class ComplaintController extends Controller
             'order_number' => $request->serial,
             'product_name' => $request->produk_name,
             'damage_category' => $request->kategori,
-            'description' => $request->detail . "\n\nAlamat Penjemputan: " . $request->alamat_lengkap,
+            'description' => $request->detail,
             'refund_method' => $refundMethod,
             'proof_image_path' => $fotoPath,
             'unboxing_video_path' => $videoPath,
@@ -49,5 +48,24 @@ class ComplaintController extends Controller
         ]);
 
         return redirect('/home')->with('success', 'Komplain berhasil diajukan dan sedang diproses admin.');
+    }
+
+    public function updateResi(Request $request, $id)
+    {
+        $request->validate([
+            'nomor_resi' => 'required|string|max:255',
+        ]);
+
+        $complaint = Complaint::where('id', $id)->where('user_id', Auth::id())->firstOrFail();
+        
+        if ($complaint->status !== 'approved_menunggu_resi') {
+            return back()->with('error', 'Status komplain tidak valid untuk penginputan resi.');
+        }
+
+        $complaint->nomor_resi = $request->nomor_resi;
+        $complaint->status = 'in_progress';
+        $complaint->save();
+
+        return redirect()->back()->with('success', 'Nomor resi berhasil dikirim, status berubah menjadi In Progress.');
     }
 }

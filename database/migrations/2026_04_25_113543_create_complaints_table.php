@@ -22,7 +22,9 @@ return new class extends Migration
             $table->string('refund_method');
             $table->string('proof_image_path')->nullable();
             $table->string('unboxing_video_path')->nullable();
-            $table->enum('status', ['pending', 'in_progress', 'approved', 'rejected', 'done'])->default('pending');
+            $table->string('nomor_resi')->nullable();
+            $table->string('bukti_transfer_path')->nullable();
+            $table->enum('status', ['pending', 'in_review', 'approved_menunggu_resi', 'in_progress', 'done', 'rejected'])->default('pending');
             $table->timestamp('completed_at')->nullable();
             $table->timestamps();
         });

@@ -74,6 +74,16 @@
     </nav>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        @if(session('success'))
+            <div class="mb-6 p-4 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-emerald-600 dark:text-emerald-400 font-medium">
+                {{ session('success') }}
+            </div>
+        @endif
+        @if(session('error'))
+            <div class="mb-6 p-4 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 font-medium">
+                {{ session('error') }}
+            </div>
+        @endif
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
             <div>
                 <h1 class="text-3xl font-extrabold tracking-tight">Halo, {{ Auth::user()->name }}!</h1>
@@ -113,9 +123,17 @@
                                 <span class="px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-xs font-bold flex items-center gap-1">
                                     <span class="size-1.5 rounded-full bg-amber-500 animate-pulse"></span> Pending
                                 </span>
-                            @elseif($complaint->status == 'approved')
+                            @elseif($complaint->status == 'in_review')
+                                <span class="px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs font-bold flex items-center gap-1">
+                                    <span class="size-1.5 rounded-full bg-indigo-500 animate-pulse"></span> Dalam Tinjauan
+                                </span>
+                            @elseif($complaint->status == 'approved_menunggu_resi')
                                 <span class="px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-bold flex items-center gap-1">
-                                    <span class="size-1.5 rounded-full bg-blue-500 animate-pulse"></span> Diproses
+                                    Menunggu Resi
+                                </span>
+                            @elseif($complaint->status == 'in_progress')
+                                <span class="px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-bold flex items-center gap-1">
+                                    <span class="size-1.5 rounded-full bg-purple-500 animate-pulse"></span> Sedang Dikirim
                                 </span>
                             @elseif($complaint->status == 'rejected')
                                 <span class="px-3 py-1 rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs font-bold flex items-center gap-1">
@@ -167,6 +185,23 @@
                                 <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Deskripsi Kerusakan</h4>
                                 <p class="text-sm text-slate-600 dark:text-slate-400 mt-1 italic">"{{ $complaint->description }}"</p>
                             </div>
+
+                            @if($complaint->status == 'approved_menunggu_resi')
+                                <div class="mt-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800">
+                                    <h4 class="text-sm font-bold text-blue-800 dark:text-blue-300 mb-2">Input Nomor Resi Pengiriman</h4>
+                                    <p class="text-xs text-blue-600 dark:text-blue-400 mb-3">Harap masukkan nomor resi bukti pengiriman barang retur Anda ke gudang kami.</p>
+                                    <form action="{{ route('complaint.update-resi', $complaint->id) }}" method="POST" class="flex gap-2">
+                                        @csrf
+                                        <input type="text" name="nomor_resi" placeholder="Contoh: JNE123456789" required class="flex-1 rounded-md border-blue-300 dark:border-blue-700 bg-white dark:bg-slate-800 text-sm focus:ring-blue-500 focus:border-blue-500 dark:text-white">
+                                        <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-md transition-colors">Kirim</button>
+                                    </form>
+                                </div>
+                            @elseif($complaint->nomor_resi)
+                                <div class="mt-4">
+                                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Nomor Resi</h4>
+                                    <p class="text-sm font-medium mt-1 text-primary">{{ $complaint->nomor_resi }}</p>
+                                </div>
+                            @endif
                         </div>
 
                         @if($complaint->status == 'done')
