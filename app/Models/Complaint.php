@@ -19,6 +19,7 @@ class Complaint extends Model
         'status',
         'completed_at',
         'nomor_resi',
+        'resi_at',
         'bukti_transfer_path',
     ];
 

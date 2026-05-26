@@ -190,7 +190,7 @@
                                 <div class="mt-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800">
                                     <h4 class="text-sm font-bold text-blue-800 dark:text-blue-300 mb-2">Input Nomor Resi Pengiriman</h4>
                                     <p class="text-xs text-blue-600 dark:text-blue-400 mb-3">Harap masukkan nomor resi bukti pengiriman barang retur Anda ke gudang kami.</p>
-                                    <form action="{{ route('complaint.update-resi', $complaint->id) }}" method="POST" class="flex gap-2">
+                                    <form action="{{ route('customer.complaint.resi', $complaint->id) }}" method="POST" class="flex gap-2">
                                         @csrf
                                         <input type="text" name="nomor_resi" placeholder="Contoh: JNE123456789" required class="flex-1 rounded-md border-blue-300 dark:border-blue-700 bg-white dark:bg-slate-800 text-sm focus:ring-blue-500 focus:border-blue-500 dark:text-white">
                                         <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-md transition-colors">Kirim</button>

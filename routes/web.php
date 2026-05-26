@@ -37,7 +37,7 @@ Route::middleware('auth')->group(function () {
     })->name('form');
 
     Route::post('/complaint', [ComplaintController::class, 'store'])->name('complaint.store');
-    Route::post('/complaint/{id}/resi', [ComplaintController::class, 'updateResi'])->name('complaint.update-resi');
+    Route::post('/customer/complaints/{id}/resi', [ComplaintController::class, 'submitResi'])->name('customer.complaint.resi');
 
     Route::get('/manajemen-komplain', [AdminController::class, 'manajemen'])->name('manajemen-komplain');
     

@@ -50,22 +50,23 @@ class ComplaintController extends Controller
         return redirect('/home')->with('success', 'Komplain berhasil diajukan dan sedang diproses admin.');
     }
 
-    public function updateResi(Request $request, $id)
+    public function submitResi(Request $request, $id)
     {
         $request->validate([
-            'nomor_resi' => 'required|string|max:255',
+            'nomor_resi' => ['required', 'string', 'min:5', 'max:50'],
         ]);
 
-        $complaint = Complaint::where('id', $id)->where('user_id', Auth::id())->firstOrFail();
-        
-        if ($complaint->status !== 'approved_menunggu_resi') {
-            return back()->with('error', 'Status komplain tidak valid untuk penginputan resi.');
-        }
+        $complaint = Complaint::where('id', $id)
+                              ->where('user_id', Auth::id())
+                              ->where('status', 'approved_menunggu_resi')
+                              ->firstOrFail();
 
-        $complaint->nomor_resi = $request->nomor_resi;
-        $complaint->status = 'in_progress';
-        $complaint->save();
+        $complaint->update([
+            'nomor_resi' => $request->nomor_resi,
+            'status'     => 'in_progress',
+            'resi_at'    => now(),
+        ]);
 
-        return redirect()->back()->with('success', 'Nomor resi berhasil dikirim, status berubah menjadi In Progress.');
+        return redirect()->back()->with('success', 'Nomor resi berhasil dikirim. Status komplain Anda kini "In Progress".');
     }
 }
