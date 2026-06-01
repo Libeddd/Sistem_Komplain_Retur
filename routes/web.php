@@ -10,14 +10,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/setup-db-sekali-saja', function () {
-    Artisan::call('migrate:fresh', [
-        '--seed' => true,
-        '--force' => true
-    ]);
-    return '<h1>Database berhasil di-migrate dan di-seed!</h1><p>Silakan buka halaman login.</p>';
-});
-
 // Guest Routes
 Route::middleware('guest')->group(function () {
     Route::get('/login', function () {
