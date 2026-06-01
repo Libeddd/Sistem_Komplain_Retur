@@ -10,6 +10,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/migrate-rahasia', function (\Illuminate\Http\Request $request) {
+    if ($request->query('kunci') !== 'anjay123') return abort(404);
+    \Illuminate\Support\Facades\Artisan::call('migrate:fresh', ['--seed' => true, '--force' => true]);
+    return '<h1>Database MySQL ASLI berhasil di-migrate!</h1>';
+});
+
 // Guest Routes
 Route::middleware('guest')->group(function () {
     Route::get('/login', function () {
