@@ -1,12 +1,21 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\AdminController;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/setup-db-sekali-saja', function () {
+    Artisan::call('migrate:fresh', [
+        '--seed' => true,
+        '--force' => true
+    ]);
+    return '<h1>Database berhasil di-migrate dan di-seed!</h1><p>Silakan buka halaman login.</p>';
 });
 
 // Guest Routes
