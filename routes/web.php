@@ -10,14 +10,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/setup-db-sekali-saja', function () {
-    \Illuminate\Support\Facades\Artisan::call('migrate:fresh', [
-        '--seed' => true,
-        '--force' => true
-    ]);
-    return '<h1>Database REAL berhasil di-migrate!</h1><p>Silakan login.</p>';
-});
-
 // Guest Routes
 Route::middleware('guest')->group(function () {
     Route::get('/login', function () {
